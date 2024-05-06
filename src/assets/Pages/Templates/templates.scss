@@ -1,0 +1,13 @@
+$mainwhite-color: #f8f8f8;
+$secondwhite-color:#fefefe;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.main-component-div{
+    width: 100%;
+    height: 100vh;
+  background-color: $mainwhite-color;
+  position: relative;
+}
