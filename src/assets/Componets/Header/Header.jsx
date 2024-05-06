@@ -7,7 +7,7 @@ export const Header = () => {
         <div className='h-inner'>
             <img src="userlogo.png" alt="userlogo" />
            <img src="David Nowak.png" alt="" />
-            <img src="public\Vector.png" alt="" />
+            <img src="Vector.png" alt="" />
         </div>
     </div>
   )
