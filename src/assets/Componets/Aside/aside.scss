@@ -6,6 +6,7 @@ $lightblue-color:#D1D1FE;
    background-color: $secondwhite-color;
     position: absolute;
     top: 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: width 0.8s ease; /* Add transition for smooth animation */
   
     /* Initial state styles */

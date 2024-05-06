@@ -1,5 +1,6 @@
 $mainwhite-color: #f8f8f8;
 $secondwhite-color:#fefefe;
+$darkblue-color:#000080;
 *{
     padding: 0;
     margin: 0;
@@ -10,4 +11,28 @@ $secondwhite-color:#fefefe;
     height: 100vh;
   background-color: $mainwhite-color;
   position: relative;
+  .letter-div{
+    padding: 30px;
+    padding-left: 95px;
+  
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    h6{
+      font-size: 16px;
+      font-family: sans-serif;
+    }
+    .btn-1{
+      button{
+        width: 95px;
+        padding: 5px;
+        border-radius:50px;
+        border: none;
+         color: $darkblue-color;
+         border:1px solid $darkblue-color;
+         background: transparent;
+      }
+    }
+  }
 }

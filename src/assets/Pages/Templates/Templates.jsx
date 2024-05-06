@@ -7,7 +7,12 @@ export const Templates = () => {
     <div className='main-component-div'>
       <Header/>
        <Aside/>
-    
+       <div className='letter-div'>
+         <h6>Templates</h6>
+         <div className='btn-1'>
+          <button>+ Add new</button>
+         </div>
+       </div>
        
     </div>
   )
