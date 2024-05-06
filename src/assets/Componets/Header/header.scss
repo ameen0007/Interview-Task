@@ -1,18 +1,19 @@
-$secondwhite-color:#fefefe;
-$font-color1:#3F434A;
-.header-main{
-  
+$secondwhite-color: #fefefe;
+$font-color1: #3f434a;
+.header-main {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 66px;
+  padding: 0px 25px;
+  background-color: $secondwhite-color;
+
+  .h-inner {
     display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    height: 66px;
-    padding: 0px 25px;
-    background-color: $secondwhite-color;
-    .h-inner{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-        
-    }
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
 }
