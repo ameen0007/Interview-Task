@@ -1,6 +1,7 @@
 $secondwhite-color:#fefefe;
 $lightblue-color:#D1D1FE;
 .aside-main {
+  z-index: 999;
     width: 80px; /* Initial width */
     height: 100vh;
    background-color: $secondwhite-color;
@@ -42,6 +43,7 @@ $lightblue-color:#D1D1FE;
             border-top-right-radius: 30px;
             border-bottom-right-radius: 30px;
             background-color: $lightblue-color;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
        
     }
       }
@@ -51,6 +53,7 @@ $lightblue-color:#D1D1FE;
             max-width: 70px;
             padding: 10px 30px 10px 27px;
            margin-right: 10px;
+          
         }
         align-items: center;
        
@@ -67,7 +70,9 @@ $lightblue-color:#D1D1FE;
         
         p {
           font-size: 18px;
-          font-family: sans-serif;
+          font-family: "Poppins", sans-serif;
+                font-weight: 500;
+                font-style: normal;
           display: none; /* Hide <p> tags initially */
         }
       }

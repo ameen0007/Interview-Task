@@ -2,6 +2,7 @@ $mainwhite-color: #f8f8f8;
 $secondwhite-color:#fefefe;
 $darkblue-color:#000080;
 *{
+  list-style-type: none;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -19,9 +20,10 @@ $darkblue-color:#000080;
     display: flex;
     justify-content: space-between;
 
-    h6{
-      font-size: 16px;
+    p{
+      font-size: 15px;
       font-family: sans-serif;
+      font-weight: 600;
     }
     .btn-1{
       button{
