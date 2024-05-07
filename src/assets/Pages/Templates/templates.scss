@@ -37,6 +37,10 @@ $darkblue-color: #000080;
         color: $darkblue-color;
         border: 2px solid $darkblue-color;
         background: transparent;
+        cursor: pointer;
+        &:hover{
+          color: rgb(159, 138, 219);
+        }
       }
     }
   }
