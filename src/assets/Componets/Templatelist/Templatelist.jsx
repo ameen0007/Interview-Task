@@ -12,77 +12,76 @@ export const Templatelist = () => {
           </div>
         </div>
       </div>
+      <div className="table-main">
+  <div className="inner-table">
+    <div className="column">Template name</div>
+    <div className="column">Template type</div>
+    <div className="column">Created by</div>
+    <div className="column">Status</div>
+    <div className="column">Actions</div>
+  </div>
 
-      <div class="table-main">
-        <div class="inner-table">
-          <div class="column">Template name</div>
-          <div class="column">Template type</div>
-          <div class="column">Created by</div>
-          <div class="column">Status</div>
-          <div class="column">Actions</div>
-        </div>
-
-        <div class="loop-row">
-          <div class="column">Installation template</div>
-          <div class="column">Installation</div>
-          <div class="column">
-            <div class="img-2">
-              <img src="userlogo.png" alt="" />
-              <p>David Nowak</p>
-            </div>
-          </div>
-          <div class="column">
-            <span>Active</span>
-          </div>
-          <div class="column">
-            <FaEye />
-          </div>
-        </div>
-        <div class="loop-row">
-          <div class="column">Installation template</div>
-          <div class="column">Installation</div>
-          <div class="column">
-            <div class="img-2">
-              <img src="userlogo.png" alt="" />
-              <p>David Nowak</p>
-            </div>
-          </div>
-          <div class="column">
-            <span>Active</span>
-          </div>
-          <div class="column">
-            <FaEye />
-          </div>
-        </div>
-        <div class="loop-row">
-          <div class="column">Installation template</div>
-          <div class="column">Installation</div>
-          <div class="column">
-            <div class="img-2">
-              <img src="userlogo.png" alt="" />
-              <p>David Nowak</p>
-            </div>
-          </div>
-          <div class="column">
-            <span>Active</span>
-          </div>
-          <div class="column">
-            <FaEye />
-          </div>
-        </div>
-        <div class="loop-row">
-          <div class="column">Installation template</div>
-          <div class="column">Installation</div>
-          <div class="column">
-            <div class="img-2">
-              <img src="userlogo.png" alt="" />
-              <p>David Nowak</p>
-            </div>
-          </div>
-          <div class="column">
-            <span>Active</span>
-          </div>
-          <div class="column">
+  <div className="loop-row">
+    <div className="column">Installation template</div>
+    <div className="column">Installation</div>
+    <div className="column">
+      <div className="img-2">
+        <img src="userlogo.png" alt="" />
+        <p>David Nowak</p>
+      </div>
+    </div>
+    <div className="column">
+      <span>Active</span>
+    </div>
+    <div className="column">
+      <FaEye />
+    </div>
+  </div>
+  <div className="loop-row">
+    <div className="column">Installation template</div>
+    <div className="column">Installation</div>
+    <div className="column">
+      <div className="img-2">
+        <img src="userlogo.png" alt="" />
+        <p>David Nowak</p>
+      </div>
+    </div>
+    <div className="column">
+      <span>Active</span>
+    </div>
+    <div className="column">
+      <FaEye />
+    </div>
+  </div>
+  <div className="loop-row">
+    <div className="column">Installation template</div>
+    <div className="column">Installation</div>
+    <div className="column">
+      <div className="img-2">
+        <img src="userlogo.png" alt="" />
+        <p>David Nowak</p>
+      </div>
+    </div>
+    <div className="column">
+      <span>Active</span>
+    </div>
+    <div className="column">
+      <FaEye />
+    </div>
+  </div>
+  <div className="loop-row">
+    <div className="column">Installation template</div>
+    <div className="column">Installation</div>
+    <div className="column">
+      <div className="img-2">
+        <img src="userlogo.png" alt="" />
+        <p>David Nowak</p>
+      </div>
+    </div>
+    <div className="column">
+      <span>Active</span>
+    </div>
+    <div className="column"> 
             <FaEye />
           </div>
         </div>
