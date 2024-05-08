@@ -33,7 +33,7 @@ export const Templatelist = () => {
           <div className="column">Actions</div>
         </div>
         <div className="loop-row">
-    <div className="column">Template Name</div>
+    <div className="column">Template 1</div>
     <div className="column">Installing</div>
     <div className="column">
       <div className="img-2">
