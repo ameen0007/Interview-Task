@@ -107,4 +107,56 @@
      }
     }
   }
+  
+    .btn-con{
+      width: 100%;
+      padding-left: 89px;
+      display: flex;
+      padding-right: 10px;
+      justify-content: flex-end;
+      margin-top: 20px;
+     margin-bottom: 30px;
+      background: transparent;
+      .save-btn{
+       button{
+         border: 1px solid #000080 ;
+      color: #000080;
+      background: transparent;
+      border-radius: 5px;
+      
+       }
+       :hover{
+        background-color: #000080;
+        color: white;
+      }
+
+        
+      }
+    }
+   .btn-4{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top:1px solid#d7d9db ;
+    padding-top: 25px;
+    .r-b button {
+      background-color: #000080;
+      border-radius: 5px;
+      padding: 10px 30px;
+      color: #ffffff;
+    }
+    
+    .r-b button:hover {
+      background-color: #ffffff;
+      color: #000080;
+      border: 1px solid#bbbfc4;
+    }
+    .l-b button{
+      
+      border-radius: 5px;
+      padding: 10px 30px;
+      color: #707D89;
+      border: 1px solid#bbbfc4;
+    }
+   }
 }

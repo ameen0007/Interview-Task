@@ -27,7 +27,7 @@
 .second-raw{
   display: flex;
  width: 100%;
- 
+ margin-bottom: 20px;
  gap: 30px;
  .btn-1{
     width: 20%;
@@ -77,7 +77,7 @@
       font-weight: 500;
       font-style: normal;
       font-size: 13px;
-     
+      
     }
     .item-div {
       
@@ -107,14 +107,7 @@
          font-size: 15px;
          
        }
-      // h6 {
-      //   font-family: "Poppins", sans-serif;
-      //   font-weight: 600;
-      //   font-style: normal;
-      //   font-size: 12px;
-      //   color: #707d89;
-        
-      // }
+     
       display: flex;
       align-items: center;
       justify-content: space-between;

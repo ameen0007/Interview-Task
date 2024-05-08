@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -7,19 +7,23 @@ import {
   IoMdClose,
 } from "react-icons/io";
 import "./milestone.scss";
+
 import { Modal } from "../Modal/Modal";
 import { Toaster, toast } from "sonner";
 import { Addtask } from "../AddTask/Addtask";
-
+import { StateContext } from "../Contextapi/contextapi";
+import { v4 as uuidv4 } from "uuid";
 export const Milestone = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
-  const [newMilestone, setNewMilestone] = useState("");
+  
   const [showModal, setShowModal] = useState(false);
-  const [milestonedata, setMilestonedata] = useState(["Installation"]);
-  const [filteredMilestoneData, setFilteredMilestoneData] = useState("");
+  const [milestonedata, setMilestonedata] = useState([]);
+  const [filteredMilestoneData, setFilteredMilestoneData] = useState([]);
   const [error, setError] = useState(false);
   const [Taskname, setTaskname] = useState("");
+  const { taskdata, setAddtask, newMilestone, setNewMilestone,milestonearr,setMilstonearr,tasks, setTasks, temporarymilstonearr,setTemporarymilstonearr} =
+    useContext(StateContext);
 
   useEffect(() => {
     const storedMilestones = JSON.parse(localStorage.getItem("milestonedata"));
@@ -27,9 +31,16 @@ export const Milestone = () => {
       setMilestonedata(storedMilestones);
       setFilteredMilestoneData(storedMilestones);
     }
-  }, []);
+    const storedTaskdata = JSON.parse(localStorage.getItem("taskdata"));
+    if (storedTaskdata) {
+      setAddtask(storedTaskdata);
+    }
+  }, [newMilestone]);
 
-  const toggleDropdown = () => {
+  useEffect(() => {
+    console.log("Updated temporarymilstonearr:", temporarymilstonearr);
+  }, [temporarymilstonearr]);
+  const toggleDropdown2 = () => {
     setIsOpen(!isOpen);
   };
 
@@ -37,11 +48,14 @@ export const Milestone = () => {
     if (newMilestone.trim() !== "") {
       milestonedata.push(newMilestone);
       console.log(milestonedata);
-      setShowModal(false);
+      
       toast.success("Successfully added new milstone");
+      
       localStorage.setItem("milestonedata", JSON.stringify(milestonedata));
-      setNewMilestone("");
+      setNewMilestone("")
+      setShowModal(false);
     } else {
+      
       setShowModal(false);
       toast.error("Input Field is empty");
     }
@@ -51,6 +65,38 @@ export const Milestone = () => {
     setShowModal(true);
   };
 
+  const handleAddTask = () => {
+    // Log the current state before updating
+    console.log("Current temporarymilstonearr:", temporarymilstonearr);
+  
+    // Check if the milestone already exists in temporarymilstonearr
+    const milestoneExists = temporarymilstonearr.find(item => item.milestone === newMilestone);
+  
+    // Create a new task object
+    const newTask = { taskName: Taskname };
+  
+    if (milestoneExists) {
+      // If milestone already exists, update its tasks
+      const updatedTemporaryMilestoneArr = temporarymilstonearr.map(item => {
+        if (item.milestone === newMilestone) {
+          return { ...item, tasks: [...item.tasks, newTask] };
+        }
+        return item;
+      });
+      setTemporarymilstonearr(updatedTemporaryMilestoneArr);
+    } else {
+      // If milestone doesn't exist, add it with the new task
+      const newMilestoneData = { milestone: newMilestone, tasks: [newTask] };
+      setTemporarymilstonearr(prevTemporarymilstonearr => [...prevTemporarymilstonearr, newMilestoneData]);
+    }
+  
+    // Clear input fields
+    setTaskname("");
+  
+    // Log the updated state after the state has been updated
+    console.log("Updated temporarymilstonearr:", temporarymilstonearr);
+  };
+  
   const handleModalClose = () => {
     setShowModal(false);
   };
@@ -77,7 +123,7 @@ export const Milestone = () => {
       setFilteredMilestoneData(filteredData);
       return;
     }
-    console.log("kerunnuddo");
+   
     setError(false);
     console.log(filteredData, "filterdata");
     setFilteredMilestoneData(filteredData);
@@ -109,18 +155,9 @@ export const Milestone = () => {
               value={newMilestone}
               onChange={handleInputChange}
             />
-            <motion.p onClick={toggleDropdown}>
+            <motion.p onClick={toggleDropdown2}>
               {isOpen ? <IoMdArrowDropupCircle /> : <IoMdArrowDropdownCircle />}
             </motion.p>
-            {/* <motion.h6>
-            {selectedItem ? selectedItem : ""}
-           
-          </motion.h6> */}
-            <motion.div
-              className="inside-drop"
-              animate={{ rotate: isOpen ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
-            ></motion.div>
           </div>
 
           <AnimatePresence>
@@ -177,14 +214,16 @@ export const Milestone = () => {
           <input
             onChange={(e) => setTaskname(e.target.value)}
             type="text"
+            value={Taskname}
             placeholder="Please Type Task Name"
           />
         </div>
 
         <div className="btn-1">
           <button
-            className={!newMilestone || !Taskname ? "disable" : ""}
-            disabled={!newMilestone || !Taskname}
+            className={!newMilestone || !Taskname || error ? "disable" : ""}
+            disabled={!newMilestone || !Taskname || error}
+            onClick={handleAddTask}
           >
             Add task
           </button>
@@ -197,9 +236,8 @@ export const Milestone = () => {
           newMilestone={newMilestone}
           setNewMilestone={setNewMilestone}
         />
-        
       )}
-        <Addtask/>
+      <Addtask temporarymilstonearr={temporarymilstonearr} />
     </div>
   );
 };

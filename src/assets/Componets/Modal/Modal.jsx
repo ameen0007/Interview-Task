@@ -11,7 +11,7 @@ export const Modal = ({setNewMilestone,newMilestone, onClose, children ,handleNe
         <div className="title">Add new milestone</div>
         <div className="form-row">
           <label htmlFor="milestoneName">Milestone Name<span className="required">*</span></label>
-          <input type="text"onChange={(e)=>setNewMilestone(e.target.value)} value={newMilestone} id="milestoneName" placeholder="Please type" />
+          <input type="text"onChange={(e)=>setNewMilestone(e.target.value)}  id="milestoneName" placeholder="Please type" />
         </div>
         <div className="button-row">
           <button className="cancel" onClick={onClose}>Cancel</button>

@@ -1,12 +1,58 @@
 .addtask-main{
-    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
     margin-left: 15px;
     width: 74%;
     height: 40px;
-   background-color: aqua;
+    padding: 5px 15px;
+    background-color: white;
+    margin-bottom: 10px;
 
    .add-taskleft{
+    
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
      width: 50%;
-     background-color: aquamarine;
+     gap: 10px;
+
+     .box{
+        width:33px ;
+        height: 30px;
+        background-color: #000080;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p{
+           color: white;
+           font-family: "Poppins", sans-serif;
+      
+      font-style: normal;
+        }
+  
+     }
+     p{
+        color: #263032;
+               font-family: "Poppins", sans-serif;
+               font-size: 11px;
+               font-weight: 600;
+       }
+
+   }
+   .add-taskright{
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+    align-items: center;
+    width: 50%;
+    
+    p{
+      img{
+        width: 12px;
+      }
+    }
    }
 }

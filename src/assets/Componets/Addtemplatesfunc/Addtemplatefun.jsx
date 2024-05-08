@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./addtemp.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -8,15 +8,26 @@ import {
 } from "react-icons/io";
 import { Colorpicker } from "../Colorpicker/Colorpicker";
 import { Milestone } from "../Milesstonelist/Milestone";
+// import { Milestonelist } from "../Milestonelistarray/Milestonelist";
+import { StateContext, Stateprovider } from "../Contextapi/contextapi";
+import { Milestonelist } from "../Milestonelistarray/Milestonelist";
 
 export const Addtemplatefun = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
   const [opened, setOpened] = useState(false);
-
+  const {milestonearr,users ,SetUsers,setMilstonearr,taskdata,temporarymilstonearr,setTemporarymilstonearr,setAddtask,newMilestone} = useContext(StateContext)
+  const [templatename,settemplsteName]=useState('')
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    const storedUsers = localStorage.getItem('users');
+    if (storedUsers) {
+      SetUsers(JSON.parse(storedUsers));
+    }
+  }, []);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -29,6 +40,60 @@ export const Addtemplatefun = () => {
     setIsOpen(false);
     setOpened(false);
   };
+  
+  const Handlesave = () => {
+    // Update milestonearr with temporarymilstonearr
+    setMilstonearr(temporarymilstonearr);
+  
+    // Update taskdata with tasks from temporarymilstonearr
+    const updatedTaskData = temporarymilstonearr.map(milestone => {
+      return {
+        milestone: milestone,
+        tasks: taskdata.filter(task => task.milestone === milestone).map(task => task.taskName)
+      };
+    });
+  
+    // Log updated taskdata
+    console.log("Updated taskdata:", updatedTaskData);
+    
+    // Clear temporarymilstonearr
+    setTemporarymilstonearr([]);
+  
+    // Log saved milestonearr
+    console.log("Saved milestonearr:", temporarymilstonearr);
+};
+
+  
+  
+
+
+  const handleSubmit = () => {
+    const randomUserId = Math.floor(Math.random() * 1000);
+  
+    // Create a new user object
+    const newUser = {
+      id: randomUserId,
+      templateName: templatename, // Using the template name state
+      templateType: selectedItem, // Using the template type state
+      tasks: taskdata // Using the taskdata array for tasks
+    };
+  
+    // Push the new user object into the users array
+    SetUsers(prevUsers => [...prevUsers, newUser]);
+    localStorage.setItem('users', JSON.stringify([...users, newUser]));
+    // Clear the taskdata array
+    setAddtask([]);
+  
+    // Clear the templateName and selectedItem states
+    settemplsteName("");
+    setSelectedItem("");   
+  };
+  
+  // Use useEffect to log users after state update
+  useEffect(() => {
+    console.log(users, "Updated users array");
+    
+  }, [users])
 
   return (
     <div className="dropdown-main-div">
@@ -37,6 +102,7 @@ export const Addtemplatefun = () => {
           <p>
             Template Type<span style={{ color: "red" }}>*</span>
           </p>
+         
           <div onClick={toggleDropdown} className="item-div">
             <motion.h6 onClick={toggleDropdown}>
               {selectedItem ? selectedItem : "Select"}
@@ -46,13 +112,13 @@ export const Addtemplatefun = () => {
               animate={{ rotate: isOpen ? 180 : 0 }}
               transition={{ duration: 0.3 }}
             >
-              <motion.p onClick={toggleDropdown}>
+              <p onClick={toggleDropdown}>
                 {isOpen ? (
                   <IoMdArrowDropupCircle />
                 ) : (
                   <IoMdArrowDropdownCircle />
                 )}
-              </motion.p>
+              </p>
               {opened && (
                 <motion.p onClick={handleCancel}>
                   <IoMdClose />
@@ -91,12 +157,23 @@ export const Addtemplatefun = () => {
             Template name <span style={{ color: "red" }}>*</span>
           </p>
           <div className="input">
-            <input type="text" placeholder="Please Type" />
+            <input onChange={(e)=>settemplsteName(e.target.value)}  type="text" placeholder="Please Type" />
           </div>
         </div>
       </div>
       <Colorpicker />
       <Milestone/>
+      <div className="btn-con">
+        <div className="save-btn">
+          <button onClick={Handlesave}>Save/Add new milestone</button>
+        </div>
+      </div>
+      <Milestonelist/>
+      <div className="btn-4">
+         <div className="l-b" ><button>Cancel</button></div>
+         <div  className="r-b"><button onClick={handleSubmit}>Submit</button></div>
+      </div>
+      
     </div>
   );
 };
