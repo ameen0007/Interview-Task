@@ -11,9 +11,10 @@ export const Stateprovider = ({ children }) => {
     const [taskdata, setAddtask] = useState([])
     const [users,SetUsers]=useState([])
     const [user,SetUser]=useState([])
+    const [onlytask,SetTask] = useState([])
 
   return (
-    <StateContext.Provider value={{temporarymilstonearr,setTemporarymilstonearr,tasks, setTasks,user,SetUser,SetUsers,taskdata, users,setAddtask, milestonearr ,setMilstonearr,newMilestone, setNewMilestone}}>
+    <StateContext.Provider value={{onlytask,SetTask,temporarymilstonearr,setTemporarymilstonearr,tasks, setTasks,user,SetUser,SetUsers,taskdata, users,setAddtask, milestonearr ,setMilstonearr,newMilestone, setNewMilestone}}>
       {children}
     </StateContext.Provider>
   );

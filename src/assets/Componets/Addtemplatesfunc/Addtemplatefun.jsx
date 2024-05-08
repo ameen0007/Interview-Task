@@ -11,17 +11,19 @@ import { Milestone } from "../Milesstonelist/Milestone";
 // import { Milestonelist } from "../Milestonelistarray/Milestonelist";
 import { StateContext, Stateprovider } from "../Contextapi/contextapi";
 import { Milestonelist } from "../Milestonelistarray/Milestonelist";
+import { useNavigate } from "react-router";
+import { Transition } from "../Animation/Animation";
 
 export const Addtemplatefun = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
   const [opened, setOpened] = useState(false);
-  const {milestonearr,users ,SetUsers,setMilstonearr,taskdata,temporarymilstonearr,setTemporarymilstonearr,setAddtask,newMilestone} = useContext(StateContext)
+  const {milestonearr,users ,SetUsers,setMilstonearr ,SetTask,taskdata,temporarymilstonearr,setTemporarymilstonearr,setAddtask,newMilestone} = useContext(StateContext)
   const [templatename,settemplsteName]=useState('')
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
+  const navigate = useNavigate()
   useEffect(() => {
     const storedUsers = localStorage.getItem('users');
     if (storedUsers) {
@@ -57,8 +59,8 @@ export const Addtemplatefun = () => {
     console.log("Updated taskdata:", updatedTaskData);
     
     // Clear temporarymilstonearr
-    setTemporarymilstonearr([]);
-  
+    
+    SetTask([])
     // Log saved milestonearr
     console.log("Saved milestonearr:", temporarymilstonearr);
 };
@@ -75,7 +77,7 @@ export const Addtemplatefun = () => {
       id: randomUserId,
       templateName: templatename, // Using the template name state
       templateType: selectedItem, // Using the template type state
-      tasks: taskdata // Using the taskdata array for tasks
+      temporarymilstonearr: temporarymilstonearr // Using the taskdata array for tasks
     };
   
     // Push the new user object into the users array
@@ -83,10 +85,12 @@ export const Addtemplatefun = () => {
     localStorage.setItem('users', JSON.stringify([...users, newUser]));
     // Clear the taskdata array
     setAddtask([]);
-  
+    
+    navigate('/')
     // Clear the templateName and selectedItem states
     settemplsteName("");
     setSelectedItem("");   
+   
   };
   
   // Use useEffect to log users after state update
@@ -96,6 +100,7 @@ export const Addtemplatefun = () => {
   }, [users])
 
   return (
+    <Transition>
     <div className="dropdown-main-div">
       <div className="inner-wrap">
         <div className="dropdown">
@@ -175,5 +180,6 @@ export const Addtemplatefun = () => {
       </div>
       
     </div>
+    </Transition>
   );
 };
