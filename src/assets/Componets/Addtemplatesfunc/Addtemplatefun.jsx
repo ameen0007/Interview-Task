@@ -13,6 +13,7 @@ import { StateContext, Stateprovider } from "../Contextapi/contextapi";
 import { Milestonelist } from "../Milestonelistarray/Milestonelist";
 import { useNavigate } from "react-router";
 import { Transition } from "../Animation/Animation";
+import { toast } from "sonner";
 
 export const Addtemplatefun = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,8 +71,13 @@ export const Addtemplatefun = () => {
 
 
   const handleSubmit = () => {
-    const randomUserId = Math.floor(Math.random() * 1000);
   
+    const randomUserId = Math.floor(Math.random() * 1000);
+    if (!templatename || !selectedItem) {
+       toast.error("Please fill in all fields!...")
+       
+      return
+    }
     // Create a new user object
     const newUser = {
       id: randomUserId,
@@ -85,12 +91,13 @@ export const Addtemplatefun = () => {
     localStorage.setItem('users', JSON.stringify([...users, newUser]));
     // Clear the taskdata array
     setAddtask([]);
-    
+     setTemporarymilstonearr([])
+     setMilstonearr([])
     navigate('/')
     // Clear the templateName and selectedItem states
     settemplsteName("");
     setSelectedItem("");   
-   
+     
   };
   
   // Use useEffect to log users after state update

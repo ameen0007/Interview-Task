@@ -156,7 +156,7 @@ export const Milestone = () => {
       <div className="milesstone-first">
         <div className="inner-milesstone">
           <p>
-            Milesstone Name<span style={{ color: "red" }}>*</span>
+            Milestone Name<span style={{ color: "red" }}>*</span>
           </p>
         </div>
         <div className="inner-milesstone">

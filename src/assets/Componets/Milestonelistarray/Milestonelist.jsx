@@ -38,7 +38,7 @@ export const Milestonelist = () => {
             {milestoneObj.tasks.map((task, taskIndex) => (
               <div key={taskIndex} className="task-details">
                 <div>{taskIndex + 1}</div>
-                <p>{task.taskName}</p> {/* Assuming task has a taskName property */}
+                <p>{task.taskName}</p> 
               </div>
             ))}
           </div>
