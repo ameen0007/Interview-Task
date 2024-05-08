@@ -1,125 +1,111 @@
+.milestone-container {
+  width: 100%;
 
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 7px;
+  gap: 15px;
 
- 
-.milestone-container{
-    width: 100%;
-
-    padding: 6px 10px;
-     display: flex;
-   flex-direction: column;
+  margin-bottom: 20px;
+  .milestone-details {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+    gap: 20px;
+    padding: 10px 15px;
     border-radius: 7px;
-    gap: 15px;
-   
-    margin-bottom: 20px;
-    .milestone-details{
-       display: flex;
-       flex-direction: column;
-       box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
-        gap: 20px;
-        padding: 10px 15px;
-        border-radius: 7px;
-        justify-content: space-between;
-        .mileston-inner{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-           
-    .milestone-name{
+    justify-content: space-between;
+    .mileston-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .milestone-name {
         display: flex;
-        
-       
+
         gap: 15px;
-       align-items: center;
-      
-        p{
-           
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            font-style: normal;
-            font-size: 14px;
-          
+        align-items: center;
+
+        p {
+          font-family: "Poppins", sans-serif;
+          font-weight: 500;
+          font-style: normal;
+          font-size: 14px;
         }
-        h4{
-            display: flex;
-            align-items: center;
-            padding: 2px 5px;
-           border: 2px solid #000080;
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            font-style: normal;
-            font-size: 14px;
-           display: flex;
-           border-radius: 6px;
-           align-items: center;
-       
-           
-          span{
-           font-size: 13px;
-           color: #000080;
-           margin-right: 2px;
-          
+        h4 {
+          display: flex;
+          align-items: center;
+          padding: 2px 5px;
+          border: 2px solid #000080;
+          font-family: "Poppins", sans-serif;
+          font-weight: 500;
+          font-style: normal;
+          font-size: 14px;
+          display: flex;
+          border-radius: 6px;
+          align-items: center;
+
+          span {
+            font-size: 13px;
+            color: #000080;
+            margin-right: 2px;
           }
         }
-    }
-        .milestone-actions{
-            display: flex;
-            gap: 10px;
-            align-items: center;
-           
-            p img {
-                width: 12px;
-                
-            }
-        }
-    }
-}
-    .tasks-heading{
+      }
+      .milestone-actions {
         display: flex;
+        gap: 10px;
         align-items: center;
-      
-        p{
-        font-family: "Poppins", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: 14px;
-        
+
+        p img {
+          width: 12px;
         }
+      }
     }
-    .task-con{
-      width: 100%;
-      
-     display: flex;
-     gap: 10px;
-    .task-details{
-       display: flex;
-      
-        align-items: center;
-       
-        
-       background-color: F3F5F6;
-        gap: 7px;
-        border: 1px solid rgb(224, 220, 220);
-       padding: 5px;
-       border-radius: 5px;
-      
-       div{
+  }
+  .tasks-heading {
+    display: flex;
+    align-items: center;
+
+    p {
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 14px;
+    }
+  }
+  .task-con {
+    width: 100%;
+
+    display: flex;
+    gap: 10px;
+    .task-details {
+      display: flex;
+
+      align-items: center;
+
+      background-color: F3F5F6;
+      gap: 7px;
+      border: 1px solid rgb(224, 220, 220);
+      padding: 5px;
+      border-radius: 5px;
+
+      div {
         width: 22px;
         background-color: #000080;
         color: white;
         text-align: center;
         padding: 2px;
         border-radius: 50%;
-       
-       }
-       p{
+      }
+      p {
         text-align: center;
         font-family: "Poppins", sans-serif;
         font-weight: 500;
         font-style: normal;
         font-size: 14px;
-       
-       }
+      }
     }
-
-    }
+  }
 }

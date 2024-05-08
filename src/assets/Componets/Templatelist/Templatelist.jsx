@@ -6,7 +6,7 @@ export const Templatelist = () => {
   const [userdetails, setuserdetails] = useState([]);
 
   useEffect(() => {
-    const storedUsers = JSON.parse(localStorage.getItem('users'));
+    const storedUsers = JSON.parse(localStorage.getItem("users"));
     if (storedUsers) {
       setuserdetails(storedUsers);
     }
@@ -22,7 +22,6 @@ export const Templatelist = () => {
           </div>
         </div>
       </div>
-   
 
       <div className="table-main">
         <div className="inner-table">
@@ -33,23 +32,21 @@ export const Templatelist = () => {
           <div className="column">Actions</div>
         </div>
         <div className="loop-row">
-    <div className="column">Template 1</div>
-    <div className="column">Installing</div>
-    <div className="column">
-      <div className="img-2">
-        <img src="userlogo.png" alt="" />
-        <p>David Nowak</p>
-      </div>
-    </div>
-    <div className="column">
-      <span>Active</span>
-    </div>
-    <div className="column"> 
+          <div className="column">Template 1</div>
+          <div className="column">Installing</div>
+          <div className="column">
+            <div className="img-2">
+              <img src="userlogo.png" alt="" />
+              <p>David Nowak</p>
+            </div>
+          </div>
+          <div className="column">
+            <span>Active</span>
+          </div>
+          <div className="column">
             <FaEye />
           </div>
         </div>
-
-
 
         {userdetails.map((user) => (
           <div className="loop-row" key={user.id}>
@@ -65,7 +62,7 @@ export const Templatelist = () => {
               <span>Active</span>
             </div>
             <div className="column">
-              <FaEye  />
+              <FaEye />
             </div>
           </div>
         ))}

@@ -1,143 +1,136 @@
-.dropdown-main-div{
-   margin: 20px 10px 10px 89px;
-    width: auto;
-    min-height: 200px;
-    border-radius: 5px;
-    padding:10px 10px 10px 10px;
-    
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
-    background-color: white;
-    
-    .inner-wrap{
-      display: flex;
-      justify-content: space-between;
-    .dropdown{
-        width: 48%;
-       
-        p{
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            font-style: normal;
-            font-size: 13px;
-            
-        }
-       .item-div{
+.dropdown-main-div {
+  margin: 20px 10px 10px 89px;
+  width: auto;
+  min-height: 200px;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+  background-color: white;
+
+  .inner-wrap {
+    display: flex;
+    justify-content: space-between;
+    .dropdown {
+      width: 48%;
+
+      p {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 13px;
+      }
+      .item-div {
         width: 100%;
         margin-top: 10px;
         padding: 4px 7px;
 
-       border: 1px solid #EFEFEF;
+        border: 1px solid #efefef;
         border-radius: 5px;
         width: 100%;
-     h6{
-        font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            font-style: normal;
-            font-size: 12px;
-          color: #707D89;
-     }
+        h6 {
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          font-style: normal;
+          font-size: 12px;
+          color: #707d89;
+        }
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .inside-drop{
-            display: flex;
-           justify-content:center;
-           align-items: center;
-            
-           p{
+        .inside-drop {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          p {
             text-align: center;
             font-weight: 600;
             font-style: normal;
             font-size: 15px;
-           
-           }
-           
+          }
         }
-       }
-       .dropdown-content{
+      }
+      .dropdown-content {
         width: 100%;
         overflow: hidden;
         justify-content: baseline;
-       align-items: center;
+        align-items: center;
         .item {
-            padding: 2px 5px;
-            border-radius: 4px;
-            border: 1px solid;
-            margin-bottom: 2px;
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            font-style: normal;
-            font-size: 13px;
-            border: 1px solid  #EFEFEF ;
-            &:first-child {
-              margin-top: 4px;
-            }
+          padding: 2px 5px;
+          border-radius: 4px;
+          border: 1px solid;
+          margin-bottom: 2px;
+          font-family: "Poppins", sans-serif;
+          font-weight: 500;
+          font-style: normal;
+          font-size: 13px;
+          border: 1px solid #efefef;
+          &:first-child {
+            margin-top: 4px;
           }
-       }
-    
+        }
+      }
     }
-    .Template-name{
-        padding-right: 14px;
-        width: 48%;
-        display: flex;
-        flex-direction: column;
-       
-      p{
+    .Template-name {
+      padding-right: 14px;
+      width: 48%;
+      display: flex;
+      flex-direction: column;
+
+      p {
         font-family: "Poppins", sans-serif;
         font-weight: 500;
         font-style: normal;
         font-size: 13px;
       }
-     .input{
+      .input {
         width: 100%;
-       
+
         padding-top: 10px;
-        input{
-            width: 100%;
+        input {
+          width: 100%;
           padding: 5px 10px;
           border-radius: 4px;
-          border: 1px solid  #EFEFEF ;
+          border: 1px solid #efefef;
           font-family: "Poppins", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: 13px;
-        outline: none;
-        background-color: transparent;
+          font-weight: 500;
+          font-style: normal;
+          font-size: 13px;
+          outline: none;
+          background-color: transparent;
         }
-     }
+      }
     }
   }
-  
-    .btn-con{
-      width: 100%;
-      padding-left: 89px;
-      display: flex;
-      padding-right: 10px;
-      justify-content: flex-end;
-      margin-top: 20px;
-     margin-bottom: 30px;
-      background: transparent;
-      .save-btn{
-       button{
-         border: 1px solid #000080 ;
-      color: #000080;
-      background: transparent;
-      border-radius: 5px;
-      
-       }
-       :hover{
+
+  .btn-con {
+    width: 100%;
+    padding-left: 89px;
+    display: flex;
+    padding-right: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background: transparent;
+    .save-btn {
+      button {
+        border: 1px solid #000080;
+        color: #000080;
+        background: transparent;
+        border-radius: 5px;
+      }
+      :hover {
         background-color: #000080;
         color: white;
       }
-
-        
-      }
     }
-   .btn-4{
+  }
+  .btn-4 {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    border-top:1px solid#d7d9db ;
+    border-top: 1px solid#d7d9db;
     padding-top: 25px;
     .r-b button {
       background-color: #000080;
@@ -145,18 +138,17 @@
       padding: 10px 30px;
       color: #ffffff;
     }
-    
+
     .r-b button:hover {
       background-color: #ffffff;
       color: #000080;
       border: 1px solid#bbbfc4;
     }
-    .l-b button{
-      
+    .l-b button {
       border-radius: 5px;
       padding: 10px 30px;
-      color: #707D89;
+      color: #707d89;
       border: 1px solid#bbbfc4;
     }
-   }
+  }
 }

@@ -16,15 +16,30 @@ import { v4 as uuidv4 } from "uuid";
 export const Milestone = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
-  
+
   const [showModal, setShowModal] = useState(false);
   const [milestonedata, setMilestonedata] = useState([]);
-  const [filteredMilestoneData, setFilteredMilestoneData] = useState(['Milestone 1','Milestone 2']);
+  const [filteredMilestoneData, setFilteredMilestoneData] = useState([
+    "Milestone 1",
+    "Milestone 2",
+  ]);
   const [error, setError] = useState(false);
   const [Taskname, setTaskname] = useState("");
-  
-  const { onlytask,SetTask, taskdata, setAddtask, newMilestone, setNewMilestone,milestonearr,setMilstonearr,tasks, setTasks, temporarymilstonearr,setTemporarymilstonearr} =
-    useContext(StateContext);
+
+  const {
+    onlytask,
+    SetTask,
+    taskdata,
+    setAddtask,
+    newMilestone,
+    setNewMilestone,
+    milestonearr,
+    setMilstonearr,
+    tasks,
+    setTasks,
+    temporarymilstonearr,
+    setTemporarymilstonearr,
+  } = useContext(StateContext);
 
   useEffect(() => {
     const storedMilestones = JSON.parse(localStorage.getItem("milestonedata"));
@@ -39,20 +54,17 @@ export const Milestone = () => {
   }, [newMilestone]);
 
   useEffect(() => {
-  
     const storedMilestones = JSON.parse(localStorage.getItem("milestonedata"));
     if (storedMilestones) {
       setMilestonedata(storedMilestones);
       setFilteredMilestoneData(storedMilestones);
     }
-    
-  },[]);
-
+  }, []);
 
   useEffect(() => {
     console.log("Updated temporarymilstonearr:", temporarymilstonearr);
-    console.log(onlytask,"onltask");
-  }, [temporarymilstonearr,onlytask]);
+    console.log(onlytask, "onltask");
+  }, [temporarymilstonearr, onlytask]);
   const toggleDropdown2 = () => {
     setIsOpen(!isOpen);
   };
@@ -61,14 +73,13 @@ export const Milestone = () => {
     if (newMilestone.trim() !== "") {
       milestonedata.push(newMilestone);
       console.log(milestonedata);
-      
+
       toast.success("Successfully added new milstone");
-      
+
       localStorage.setItem("milestonedata", JSON.stringify(milestonedata));
-      setNewMilestone("")
+      setNewMilestone("");
       setShowModal(false);
     } else {
-      
       setShowModal(false);
       toast.error("Input Field is empty");
     }
@@ -81,39 +92,43 @@ export const Milestone = () => {
   const handleAddTask = () => {
     // Log the current state before updating
     console.log("Current temporarymilstonearr:", temporarymilstonearr);
-    
-   
+
     // Check if the milestone already exists in temporarymilstonearr
-    const milestoneExists = temporarymilstonearr.find(item => item.milestone === newMilestone);
-  
+    const milestoneExists = temporarymilstonearr.find(
+      (item) => item.milestone === newMilestone
+    );
+
     // Create a new task object
     const newTask = { taskName: Taskname };
-    
-    SetTask(prevTasks => [...prevTasks, newTask]);
+
+    SetTask((prevTasks) => [...prevTasks, newTask]);
 
     if (milestoneExists) {
       // If milestone already exists, update its tasks
-      const updatedTemporaryMilestoneArr = temporarymilstonearr.map(item => {
+      const updatedTemporaryMilestoneArr = temporarymilstonearr.map((item) => {
         if (item.milestone === newMilestone) {
           return { ...item, tasks: [...item.tasks, newTask] };
         }
         return item;
       });
-    
+
       setTemporarymilstonearr(updatedTemporaryMilestoneArr);
     } else {
       // If milestone doesn't exist, add it with the new task
       const newMilestoneData = { milestone: newMilestone, tasks: [newTask] };
-      setTemporarymilstonearr(prevTemporarymilstonearr => [...prevTemporarymilstonearr, newMilestoneData]);
+      setTemporarymilstonearr((prevTemporarymilstonearr) => [
+        ...prevTemporarymilstonearr,
+        newMilestoneData,
+      ]);
     }
-  
+
     // Clear input fields
     setTaskname("");
-  
+
     // Log the updated state after the state has been updated
-   
+
     console.log("Updated temporarymilstonearr:", temporarymilstonearr);
-    console.log(onlytask,"onltask");
+    console.log(onlytask, "onltask");
   };
 
   const handleModalClose = () => {
@@ -131,7 +146,7 @@ export const Milestone = () => {
     const inputValue = event.target.value;
     setNewMilestone(inputValue);
     console.log(inputValue, "inputvalue");
-     
+
     const filteredData = milestonedata.filter((item) =>
       item.toLowerCase().startsWith(inputValue.toLowerCase())
     );
@@ -142,7 +157,7 @@ export const Milestone = () => {
       setFilteredMilestoneData(filteredData);
       return;
     }
-   
+
     setError(false);
     console.log(filteredData, "filterdata");
     setFilteredMilestoneData(filteredData);
